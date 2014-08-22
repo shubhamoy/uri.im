@@ -11,14 +11,18 @@
 		<body>
 			<h1 style="font-family: 'Spicy Rice', cursive;color:#0095ef;text-align:center;font-size:4em;">URI.im</h1>
 			<h4 style="color:#666; text-align:center;font-family: 'Source Sans Pro',sans-serif;
-font-weight: 300;">Another URL Shortener</h4>
-			<form action="http://uri.im/api/v1" method="get" name="uriform" id="uriform">
-				<input type="text" name="u" id="u" required placeholder="Enter your URL">
-				<input type="text" name="key" id="key" placeholder="Custom Key">				
-				<input type="submit" value="Generate" id="urigen">
-			</form>
+font-weight: 300;font-size:1.25em;">Another URL Shortener</h4>
+			
+			<div style="margin:0 auto;">
+				<form action="http://uri.im/api/v1" method="get" name="uriform" id="uriform">
+					<input type="text" name="u" id="u" required placeholder="Enter your URL">
+					<input type="text" name="key" id="key" placeholder="Custom Key">				
+					<input type="submit" value="Generate" id="urigen">
+				</form>
+			</div>
 			
 			<div id="result"></div>
+			
 			<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 			<script>
 				$('#key').bind('keypress', function (event) {
