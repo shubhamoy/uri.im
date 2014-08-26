@@ -23,6 +23,7 @@ body {
 	font-family: 'Source Sans Pro',sans-serif;
 	font-weight: 300;
 	text-align: center !important;
+	padding-top:0px; 
 }
 .form-signin .form-control {
   position: relative;
