@@ -5,7 +5,8 @@ $('#key').bind('keypress', function (event) {
     event.preventDefault();
     return false;
   }
-});			
+});
+
 $("#urigen").click(function(e)
 {
   e.preventDefault();
@@ -14,28 +15,26 @@ $("#urigen").click(function(e)
   $("#loader").show();
   $.ajax({
     type: 'GET',
-	url: 'http://uri.im/api/v1',
-	crossDomain: true,
-	data: 'u='+u+'&key='+k,
-	dataType: 'text',
-	success: function(r, t, j) 
-	{
+		url: 'http://uri.im/api/v1',
+		crossDomain: true,
+		data: 'u='+u+'&key='+k,
+		dataType: 'text'
+	})
+	.done(function(data, textStatus, jqXHR){
 		$("#loader").hide();
 		$("#u").hide();
-		$("#key").hide();					        
-		$("#urigen").hide();					        
-		$(".result").html("<a  target='_blank' href='"+r+"'>"+r+"</a>");
+		$("#key").hide();
+		$("#urigen").hide();
+		$(".result").html("<a  target='_blank' href='"+data+"'>"+data+"</a>");
 		$(".result").show();
-		$("#back").show();
-	},
-	error: function (r, t, e) 
-	{
+		$("#back").show();		
+	})
+	.fail(function(data, textStatus, jqXHR){
 		$("#u").hide();
-		$("#key").hide();					        
-		$("#urigen").hide();					        
+		$("#key").hide();
+		$("#urigen").hide();
 		$("#back").show();
-		$(".error").html('<a style="color:red;" title="Return to Previous Page" name="back" id="back" href="javascript:location.reload();">'+r.responseText+'</a>')	   
-		$(".error").show();					     	
-	}
-});	
-});		
+		$(".error").html('<a style="color:red;" title="Return to Previous Page" name="back" id="back" href="javascript:location.reload();">'+data.responseText+'</a>');
+		$(".error").show();
+	});
+});
